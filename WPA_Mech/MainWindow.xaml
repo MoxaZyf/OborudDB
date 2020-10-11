@@ -1,0 +1,19 @@
+﻿<Window x:Class="WPA_Mech.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     
+        xmlns:local="clr-namespace:WPA_Mech"
+        xmlns:viewModels ="clr-namespace:WPA_Mech.ViewModels"
+        mc:Ignorable="d"
+        Title="WPA_Mech "  Height="350" Width="525">
+    <Window.DataContext>
+        <viewModels:MainVM/>
+    </Window.DataContext>
+    <Grid>
+        <TextBlock Text="Вы не авторизированы.Обратитесь к руководителю за предоставлением доступа">
+            
+        </TextBlock>
+   </Grid>
+</Window>

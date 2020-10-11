@@ -1,0 +1,778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Bez2019Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="varbinary(max)" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NaryadList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Data" Type="datetime" />
+          <Property Name="Nar_vidal" Type="nvarchar(max)" />
+          <Property Name="Smena" Type="int" />
+          <Property Name="Smena_long" Type="int" />
+          <Property Name="Master" Type="nvarchar(max)" />
+          <Property Name="FIO" Type="nvarchar(max)" />
+          <Property Name="Post" Type="nvarchar(max)" />
+          <Property Name="Podrazd" Type="nvarchar(max)" />
+          <Property Name="Oborud" Type="nvarchar(max)" />
+          <Property Name="TO_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Work_list" Type="nvarchar(max)" />
+          <Property Name="Time_Plan" Type="int" />
+          <Property Name="Time_Fakt" Type="int" />
+          <Property Name="StatusNar" Type="nvarchar(max)" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="Brigada" Type="int" />
+        </EntityType>
+        <EntityType Name="Oboruds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Podrazd" Type="nvarchar(max)" />
+          <Property Name="NameOborud" Type="nvarchar(max)" />
+          <Property Name="Uchastok" Type="nvarchar(max)" />
+          <Property Name="typeTo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prof" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Org" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TableTest2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name2" Type="nvarchar(max)" />
+          <Property Name="idT" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TechKart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="TypeOborud" Type="nvarchar(max)" />
+          <Property Name="Состав_работ" Type="nvarchar(max)" />
+          <Property Name="КР" Type="nvarchar" MaxLength="50" />
+          <Property Name="КРу" Type="nvarchar" MaxLength="50" />
+          <Property Name="ТО" Type="nvarchar" MaxLength="50" />
+          <Property Name="Т" Type="nvarchar" MaxLength="50" />
+          <Property Name="ЕО" Type="nvarchar" MaxLength="50" />
+          <Property Name="А" Type="nvarchar" MaxLength="50" />
+          <Property Name="М" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UMRK_BR">
+          <Key>
+            <PropertyRef Name="Id_br" />
+          </Key>
+          <Property Name="Id_br" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sm" Type="int" Nullable="false" />
+          <Property Name="Num_br" Type="int" />
+          <Property Name="Tab" Type="nvarchar" MaxLength="10" />
+          <Property Name="FIO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prof" Type="nvarchar" MaxLength="50" />
+          <Property Name="Org" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rowversion" Type="binary" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_ISP">
+          <Key>
+            <PropertyRef Name="id_isp" />
+          </Key>
+          <Property Name="id_isp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tab_n" Type="nvarchar" MaxLength="10" />
+          <Property Name="Prof" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fio" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="Org" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_OP">
+          <Key>
+            <PropertyRef Name="Id_oper" />
+          </Key>
+          <Property Name="Id_oper" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Oper_tk_fk" Type="int" />
+          <Property Name="Id_rem" Type="int" Nullable="false" />
+          <Property Name="isp" Type="int" />
+          <Property Name="time_op" Type="datetime" />
+          <Property Name="Regl" Type="bit" />
+        </EntityType>
+        <EntityType Name="UMRK_OP_TK">
+          <Key>
+            <PropertyRef Name="Id_oper_tk" />
+          </Key>
+          <Property Name="Id_oper_tk" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Used" Type="bit" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Oborud" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Pro1" Type="int" />
+          <Property Name="Pro2" Type="int" />
+          <Property Name="Pro3" Type="int" />
+          <Property Name="Pro4" Type="int" />
+          <Property Name="Pro5" Type="int" />
+          <Property Name="Pro6" Type="int" />
+          <Property Name="Pro7" Type="int" />
+          <Property Name="Pro8" Type="int" />
+          <Property Name="Pro9" Type="int" />
+          <Property Name="Pro10" Type="int" />
+          <Property Name="Pro11" Type="int" />
+          <Property Name="Pro12" Type="int" />
+          <Property Name="Pro13" Type="int" />
+          <Property Name="Pro14" Type="int" />
+          <Property Name="Pro15" Type="int" />
+          <Property Name="T1" Type="datetime" />
+          <Property Name="T2" Type="datetime" />
+          <Property Name="T3" Type="datetime" />
+          <Property Name="T4" Type="datetime" />
+          <Property Name="T5" Type="datetime" />
+          <Property Name="T6" Type="datetime" />
+          <Property Name="T7" Type="datetime" />
+          <Property Name="T8" Type="datetime" />
+          <Property Name="T9" Type="datetime" />
+          <Property Name="T10" Type="datetime" />
+          <Property Name="TR1" Type="datetime" />
+          <Property Name="TR2" Type="datetime" />
+          <Property Name="TR3" Type="datetime" />
+          <Property Name="TR4" Type="datetime" />
+          <Property Name="TR5" Type="datetime" />
+          <Property Name="TR6" Type="datetime" />
+          <Property Name="TR7" Type="datetime" />
+          <Property Name="TR8" Type="datetime" />
+          <Property Name="TR9" Type="datetime" />
+          <Property Name="TR10" Type="datetime" />
+          <Property Name="Prisp" Type="nvarchar(max)" />
+          <Property Name="Material" Type="nvarchar(max)" />
+          <Property Name="TB" Type="nvarchar(max)" />
+          <Property Name="Komment" Type="nvarchar(max)" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rowversion" Type="binary" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_PPR">
+          <Key>
+            <PropertyRef Name="Id_PPR" />
+            <PropertyRef Name="Per" />
+            <PropertyRef Name="Oborud" />
+            <PropertyRef Name="Type_oborud" />
+            <PropertyRef Name="Podrazd" />
+            <PropertyRef Name="Type_work" />
+          </Key>
+          <Property Name="Id_PPR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Per" Type="datetime" Nullable="false" />
+          <Property Name="Oborud" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Type_oborud" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="Podrazd" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type_work" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="T" Type="real" />
+          <Property Name="TR" Type="real" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UMRK_REM">
+          <Key>
+            <PropertyRef Name="Id_rem" />
+          </Key>
+          <Property Name="Id_rem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Num_br" Type="int" Nullable="false" />
+          <Property Name="sm" Type="int" Nullable="false" />
+          <Property Name="Podrazd" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Oborud" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type_Oborud" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type_work" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ind" Type="bit" />
+          <Property Name="NR" Type="datetime" />
+          <Property Name="KR" Type="datetime" />
+          <Property Name="TR" Type="datetime" />
+          <Property Name="ND" Type="datetime" />
+          <Property Name="KD" Type="datetime" />
+          <Property Name="TD" Type="datetime" />
+          <Property Name="Komment" Type="nvarchar(max)" />
+          <Property Name="Komment1" Type="nvarchar(max)" />
+          <Property Name="Pr_rem" Type="int" />
+        </EntityType>
+        <EntityType Name="UMRK_SM">
+          <Key>
+            <PropertyRef Name="Id_sm" />
+          </Key>
+          <Property Name="Id_sm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_nar" Type="datetime" Nullable="false" />
+          <Property Name="Num_sm" Type="int" Nullable="false" />
+          <Property Name="Prod" Type="int" Nullable="false" />
+          <Property Name="Nar_vid" Type="nvarchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserRole" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Access" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="Хранилище Bez2019ModelContainer">
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NaryadList" EntityType="Self.NaryadList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Oboruds" EntityType="Self.Oboruds" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTest" EntityType="Self.TableTest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableTest2" EntityType="Self.TableTest2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TechKart" EntityType="Self.TechKart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_BR" EntityType="Self.UMRK_BR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_ISP" EntityType="Self.UMRK_ISP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_OP" EntityType="Self.UMRK_OP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_OP_TK" EntityType="Self.UMRK_OP_TK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_PPR" EntityType="Self.UMRK_PPR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_REM" EntityType="Self.UMRK_REM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UMRK_SM" EntityType="Self.UMRK_SM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Bez2019Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NaryadList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Data" Type="DateTime" Precision="3" />
+          <Property Name="Nar_vidal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Smena" Type="Int32" />
+          <Property Name="Smena_long" Type="Int32" />
+          <Property Name="Master" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Podrazd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Oborud" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TO_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Work_list" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Time_Plan" Type="Int32" />
+          <Property Name="Time_Fakt" Type="Int32" />
+          <Property Name="StatusNar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Brigada" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Oboruds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Podrazd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NameOborud" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Uchastok" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="typeTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Personal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prof" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Org" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableTest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TableTest2">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TechKart">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TypeOborud" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Состав_работ" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="КР" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="КРу" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ТО" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Т" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ЕО" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="А" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="М" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UMRK_BR">
+          <Key>
+            <PropertyRef Name="Id_br" />
+          </Key>
+          <Property Name="Id_br" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sm" Type="Int32" Nullable="false" />
+          <Property Name="Num_br" Type="Int32" />
+          <Property Name="Tab" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prof" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Org" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rowversion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_ISP">
+          <Key>
+            <PropertyRef Name="id_isp" />
+          </Key>
+          <Property Name="id_isp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tab_n" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Prof" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fio" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Org" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_OP">
+          <Key>
+            <PropertyRef Name="Id_oper" />
+          </Key>
+          <Property Name="Id_oper" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Oper_tk_fk" Type="Int32" />
+          <Property Name="Id_rem" Type="Int32" Nullable="false" />
+          <Property Name="isp" Type="Int32" />
+          <Property Name="time_op" Type="DateTime" Precision="3" />
+          <Property Name="Regl" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UMRK_OP_TK">
+          <Key>
+            <PropertyRef Name="Id_oper_tk" />
+          </Key>
+          <Property Name="Id_oper_tk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Used" Type="Boolean" Nullable="false" />
+          <Property Name="Operation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Oborud" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pro1" Type="Int32" />
+          <Property Name="Pro2" Type="Int32" />
+          <Property Name="Pro3" Type="Int32" />
+          <Property Name="Pro4" Type="Int32" />
+          <Property Name="Pro5" Type="Int32" />
+          <Property Name="Pro6" Type="Int32" />
+          <Property Name="Pro7" Type="Int32" />
+          <Property Name="Pro8" Type="Int32" />
+          <Property Name="Pro9" Type="Int32" />
+          <Property Name="Pro10" Type="Int32" />
+          <Property Name="Pro11" Type="Int32" />
+          <Property Name="Pro12" Type="Int32" />
+          <Property Name="Pro13" Type="Int32" />
+          <Property Name="Pro14" Type="Int32" />
+          <Property Name="Pro15" Type="Int32" />
+          <Property Name="T1" Type="DateTime" Precision="3" />
+          <Property Name="T2" Type="DateTime" Precision="3" />
+          <Property Name="T3" Type="DateTime" Precision="3" />
+          <Property Name="T4" Type="DateTime" Precision="3" />
+          <Property Name="T5" Type="DateTime" Precision="3" />
+          <Property Name="T6" Type="DateTime" Precision="3" />
+          <Property Name="T7" Type="DateTime" Precision="3" />
+          <Property Name="T8" Type="DateTime" Precision="3" />
+          <Property Name="T9" Type="DateTime" Precision="3" />
+          <Property Name="T10" Type="DateTime" Precision="3" />
+          <Property Name="TR1" Type="DateTime" Precision="3" />
+          <Property Name="TR2" Type="DateTime" Precision="3" />
+          <Property Name="TR3" Type="DateTime" Precision="3" />
+          <Property Name="TR4" Type="DateTime" Precision="3" />
+          <Property Name="TR5" Type="DateTime" Precision="3" />
+          <Property Name="TR6" Type="DateTime" Precision="3" />
+          <Property Name="TR7" Type="DateTime" Precision="3" />
+          <Property Name="TR8" Type="DateTime" Precision="3" />
+          <Property Name="TR9" Type="DateTime" Precision="3" />
+          <Property Name="TR10" Type="DateTime" Precision="3" />
+          <Property Name="Prisp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Material" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Komment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Rowversion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UMRK_PPR">
+          <Key>
+            <PropertyRef Name="Id_PPR" />
+            <PropertyRef Name="Per" />
+            <PropertyRef Name="Oborud" />
+            <PropertyRef Name="Type_oborud" />
+            <PropertyRef Name="Podrazd" />
+            <PropertyRef Name="Type_work" />
+          </Key>
+          <Property Name="Id_PPR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Per" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Oborud" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_oborud" Type="String" MaxLength="160" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Podrazd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_work" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="T" Type="Single" />
+          <Property Name="TR" Type="Single" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UMRK_REM">
+          <Key>
+            <PropertyRef Name="Id_rem" />
+          </Key>
+          <Property Name="Id_rem" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Num_br" Type="Int32" Nullable="false" />
+          <Property Name="sm" Type="Int32" Nullable="false" />
+          <Property Name="Podrazd" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Oborud" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_Oborud" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type_work" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ind" Type="Boolean" />
+          <Property Name="NR" Type="DateTime" Precision="3" />
+          <Property Name="KR" Type="DateTime" Precision="3" />
+          <Property Name="TR" Type="DateTime" Precision="3" />
+          <Property Name="ND" Type="DateTime" Precision="3" />
+          <Property Name="KD" Type="DateTime" Precision="3" />
+          <Property Name="TD" Type="DateTime" Precision="3" />
+          <Property Name="Komment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Komment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Pr_rem" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UMRK_SM">
+          <Key>
+            <PropertyRef Name="Id_sm" />
+          </Key>
+          <Property Name="Id_sm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_nar" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Num_sm" Type="Int32" Nullable="false" />
+          <Property Name="Prod" Type="Int32" Nullable="false" />
+          <Property Name="Nar_vid" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserRole" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Access" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="Bez1Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" />
+          <EntitySet Name="NaryadList" EntityType="Self.NaryadList" />
+          <EntitySet Name="Oboruds" EntityType="Self.Oboruds" />
+          <EntitySet Name="Personal" EntityType="Self.Personal" />
+          <EntitySet Name="TableTest" EntityType="Self.TableTest" />
+          <EntitySet Name="TableTest2" EntityType="Self.TableTest2" />
+          <EntitySet Name="TechKart" EntityType="Self.TechKart" />
+          <EntitySet Name="UMRK_BR" EntityType="Self.UMRK_BR" />
+          <EntitySet Name="UMRK_ISP" EntityType="Self.UMRK_ISP" />
+          <EntitySet Name="UMRK_OP" EntityType="Self.UMRK_OP" />
+          <EntitySet Name="UMRK_OP_TK" EntityType="Self.UMRK_OP_TK" />
+          <EntitySet Name="UMRK_PPR" EntityType="Self.UMRK_PPR" />
+          <EntitySet Name="UMRK_REM" EntityType="Self.UMRK_REM" />
+          <EntitySet Name="UMRK_SM" EntityType="Self.UMRK_SM" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Bez2019ModelContainer" CdmEntityContainer="Bez1Entities">
+          <EntitySetMapping Name="dtproperties">
+            <EntityTypeMapping TypeName="Bez2019Model.dtproperties">
+              <MappingFragment StoreEntitySet="dtproperties">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="objectid" ColumnName="objectid" />
+                <ScalarProperty Name="property" ColumnName="property" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+                <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NaryadList">
+            <EntityTypeMapping TypeName="Bez2019Model.NaryadList">
+              <MappingFragment StoreEntitySet="NaryadList">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Nar_vidal" ColumnName="Nar_vidal" />
+                <ScalarProperty Name="Smena" ColumnName="Smena" />
+                <ScalarProperty Name="Smena_long" ColumnName="Smena_long" />
+                <ScalarProperty Name="Master" ColumnName="Master" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Podrazd" ColumnName="Podrazd" />
+                <ScalarProperty Name="Oborud" ColumnName="Oborud" />
+                <ScalarProperty Name="TO_Type" ColumnName="TO_Type" />
+                <ScalarProperty Name="Work_list" ColumnName="Work_list" />
+                <ScalarProperty Name="Time_Plan" ColumnName="Time_Plan" />
+                <ScalarProperty Name="Time_Fakt" ColumnName="Time_Fakt" />
+                <ScalarProperty Name="StatusNar" ColumnName="StatusNar" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Brigada" ColumnName="Brigada" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Oboruds">
+            <EntityTypeMapping TypeName="Bez2019Model.Oboruds">
+              <MappingFragment StoreEntitySet="Oboruds">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Podrazd" ColumnName="Podrazd" />
+                <ScalarProperty Name="NameOborud" ColumnName="NameOborud" />
+                <ScalarProperty Name="Uchastok" ColumnName="Uchastok" />
+                <ScalarProperty Name="typeTo" ColumnName="typeTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personal">
+            <EntityTypeMapping TypeName="Bez2019Model.Personal">
+              <MappingFragment StoreEntitySet="Personal">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Prof" ColumnName="Prof" />
+                <ScalarProperty Name="Org" ColumnName="Org" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTest">
+            <EntityTypeMapping TypeName="Bez2019Model.TableTest">
+              <MappingFragment StoreEntitySet="TableTest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableTest2">
+            <EntityTypeMapping TypeName="Bez2019Model.TableTest2">
+              <MappingFragment StoreEntitySet="TableTest2">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name2" ColumnName="Name2" />
+                <ScalarProperty Name="idT" ColumnName="idT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TechKart">
+            <EntityTypeMapping TypeName="Bez2019Model.TechKart">
+              <MappingFragment StoreEntitySet="TechKart">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeOborud" ColumnName="TypeOborud" />
+                <ScalarProperty Name="Состав_работ" ColumnName="Состав_работ" />
+                <ScalarProperty Name="КР" ColumnName="КР" />
+                <ScalarProperty Name="КРу" ColumnName="КРу" />
+                <ScalarProperty Name="ТО" ColumnName="ТО" />
+                <ScalarProperty Name="Т" ColumnName="Т" />
+                <ScalarProperty Name="ЕО" ColumnName="ЕО" />
+                <ScalarProperty Name="А" ColumnName="А" />
+                <ScalarProperty Name="М" ColumnName="М" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_BR">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_BR">
+              <MappingFragment StoreEntitySet="UMRK_BR">
+                <ScalarProperty Name="Id_br" ColumnName="Id_br" />
+                <ScalarProperty Name="sm" ColumnName="sm" />
+                <ScalarProperty Name="Num_br" ColumnName="Num_br" />
+                <ScalarProperty Name="Tab" ColumnName="Tab" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Prof" ColumnName="Prof" />
+                <ScalarProperty Name="Org" ColumnName="Org" />
+                <ScalarProperty Name="Rowversion" ColumnName="Rowversion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_ISP">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_ISP">
+              <MappingFragment StoreEntitySet="UMRK_ISP">
+                <ScalarProperty Name="id_isp" ColumnName="id_isp" />
+                <ScalarProperty Name="Tab_n" ColumnName="Tab_n" />
+                <ScalarProperty Name="Prof" ColumnName="Prof" />
+                <ScalarProperty Name="Fio" ColumnName="Fio" />
+                <ScalarProperty Name="Org" ColumnName="Org" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_OP">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_OP">
+              <MappingFragment StoreEntitySet="UMRK_OP">
+                <ScalarProperty Name="Id_oper" ColumnName="Id_oper" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Oper_tk_fk" ColumnName="Oper_tk_fk" />
+                <ScalarProperty Name="Id_rem" ColumnName="Id_rem" />
+                <ScalarProperty Name="isp" ColumnName="isp" />
+                <ScalarProperty Name="time_op" ColumnName="time_op" />
+                <ScalarProperty Name="Regl" ColumnName="Regl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_OP_TK">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_OP_TK">
+              <MappingFragment StoreEntitySet="UMRK_OP_TK">
+                <ScalarProperty Name="Id_oper_tk" ColumnName="Id_oper_tk" />
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="Oborud" ColumnName="Oborud" />
+                <ScalarProperty Name="Pro1" ColumnName="Pro1" />
+                <ScalarProperty Name="Pro2" ColumnName="Pro2" />
+                <ScalarProperty Name="Pro3" ColumnName="Pro3" />
+                <ScalarProperty Name="Pro4" ColumnName="Pro4" />
+                <ScalarProperty Name="Pro5" ColumnName="Pro5" />
+                <ScalarProperty Name="Pro6" ColumnName="Pro6" />
+                <ScalarProperty Name="Pro7" ColumnName="Pro7" />
+                <ScalarProperty Name="Pro8" ColumnName="Pro8" />
+                <ScalarProperty Name="Pro9" ColumnName="Pro9" />
+                <ScalarProperty Name="Pro10" ColumnName="Pro10" />
+                <ScalarProperty Name="Pro11" ColumnName="Pro11" />
+                <ScalarProperty Name="Pro12" ColumnName="Pro12" />
+                <ScalarProperty Name="Pro13" ColumnName="Pro13" />
+                <ScalarProperty Name="Pro14" ColumnName="Pro14" />
+                <ScalarProperty Name="Pro15" ColumnName="Pro15" />
+                <ScalarProperty Name="T1" ColumnName="T1" />
+                <ScalarProperty Name="T2" ColumnName="T2" />
+                <ScalarProperty Name="T3" ColumnName="T3" />
+                <ScalarProperty Name="T4" ColumnName="T4" />
+                <ScalarProperty Name="T5" ColumnName="T5" />
+                <ScalarProperty Name="T6" ColumnName="T6" />
+                <ScalarProperty Name="T7" ColumnName="T7" />
+                <ScalarProperty Name="T8" ColumnName="T8" />
+                <ScalarProperty Name="T9" ColumnName="T9" />
+                <ScalarProperty Name="T10" ColumnName="T10" />
+                <ScalarProperty Name="TR1" ColumnName="TR1" />
+                <ScalarProperty Name="TR2" ColumnName="TR2" />
+                <ScalarProperty Name="TR3" ColumnName="TR3" />
+                <ScalarProperty Name="TR4" ColumnName="TR4" />
+                <ScalarProperty Name="TR5" ColumnName="TR5" />
+                <ScalarProperty Name="TR6" ColumnName="TR6" />
+                <ScalarProperty Name="TR7" ColumnName="TR7" />
+                <ScalarProperty Name="TR8" ColumnName="TR8" />
+                <ScalarProperty Name="TR9" ColumnName="TR9" />
+                <ScalarProperty Name="TR10" ColumnName="TR10" />
+                <ScalarProperty Name="Prisp" ColumnName="Prisp" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="TB" ColumnName="TB" />
+                <ScalarProperty Name="Komment" ColumnName="Komment" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Rowversion" ColumnName="Rowversion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_PPR">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_PPR">
+              <MappingFragment StoreEntitySet="UMRK_PPR">
+                <ScalarProperty Name="Id_PPR" ColumnName="Id_PPR" />
+                <ScalarProperty Name="Per" ColumnName="Per" />
+                <ScalarProperty Name="Oborud" ColumnName="Oborud" />
+                <ScalarProperty Name="Type_oborud" ColumnName="Type_oborud" />
+                <ScalarProperty Name="Podrazd" ColumnName="Podrazd" />
+                <ScalarProperty Name="Type_work" ColumnName="Type_work" />
+                <ScalarProperty Name="T" ColumnName="T" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_REM">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_REM">
+              <MappingFragment StoreEntitySet="UMRK_REM">
+                <ScalarProperty Name="Id_rem" ColumnName="Id_rem" />
+                <ScalarProperty Name="Num_br" ColumnName="Num_br" />
+                <ScalarProperty Name="sm" ColumnName="sm" />
+                <ScalarProperty Name="Podrazd" ColumnName="Podrazd" />
+                <ScalarProperty Name="Oborud" ColumnName="Oborud" />
+                <ScalarProperty Name="Type_Oborud" ColumnName="Type_Oborud" />
+                <ScalarProperty Name="Type_work" ColumnName="Type_work" />
+                <ScalarProperty Name="ind" ColumnName="ind" />
+                <ScalarProperty Name="NR" ColumnName="NR" />
+                <ScalarProperty Name="KR" ColumnName="KR" />
+                <ScalarProperty Name="TR" ColumnName="TR" />
+                <ScalarProperty Name="ND" ColumnName="ND" />
+                <ScalarProperty Name="KD" ColumnName="KD" />
+                <ScalarProperty Name="TD" ColumnName="TD" />
+                <ScalarProperty Name="Komment" ColumnName="Komment" />
+                <ScalarProperty Name="Komment1" ColumnName="Komment1" />
+                <ScalarProperty Name="Pr_rem" ColumnName="Pr_rem" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UMRK_SM">
+            <EntityTypeMapping TypeName="Bez2019Model.UMRK_SM">
+              <MappingFragment StoreEntitySet="UMRK_SM">
+                <ScalarProperty Name="Id_sm" ColumnName="Id_sm" />
+                <ScalarProperty Name="Date_nar" ColumnName="Date_nar" />
+                <ScalarProperty Name="Num_sm" ColumnName="Num_sm" />
+                <ScalarProperty Name="Prod" ColumnName="Prod" />
+                <ScalarProperty Name="Nar_vid" ColumnName="Nar_vid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Bez2019Model.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="Access" ColumnName="Access" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

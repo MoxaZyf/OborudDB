@@ -1,0 +1,51 @@
+﻿<Window x:Class="WPA_Mech.MyWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:WPA_Mech.ViewModels" 
+        xmlns:conv ="clr-namespace:WPA_Mech.Converters"
+        Title="Анализ план/работ" Height="350" Width="525">
+   
+    <Window.Resources>
+        <conv:EnumLabel x:Key="EnumLable"/>
+        <conv:EnumDescription x:Key="EnumDescription"/>
+        <DataTemplate x:Key="EnumDecs">
+            <TextBlock Text="{Binding Converter={StaticResource EnumDescription}}"/>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <Menu HorizontalAlignment="Left" Height="29" VerticalAlignment="Top" Width="455">
+        <MenuItem Header="Подать заявку" Click="MenuItem_Click" Visibility="Collapsed"></MenuItem>
+        <MenuItem Header="План/Факт" Click="PlanFact_Click" ></MenuItem>
+        <MenuItem Header="Наряд" >
+            <!--  <MenuItem Header="1" Click="Test"></MenuItem>
+            <MenuItem Header="testCheck" Click="MenuItem_Click_4"></MenuItem>
+            <MenuItem Header="NewNar" Click="MenuItem_Click_5"></MenuItem>-->
+          
+            <MenuItem Header="Создать наряд" Click ="TreeView"></MenuItem>
+            <MenuItem Header="Редактировать и распечатать наряд" Click ="TreeViewRedact"></MenuItem>
+
+        </MenuItem>
+        <MenuItem Header="Статистика" >
+
+            <MenuItem Header="Статистика" Click="SutRaport" ></MenuItem>
+            <MenuItem Header="Автохронометраж" Click="AvtoHr" ></MenuItem>
+            <MenuItem Header="ProgressBar" Click="Bar" ></MenuItem>
+
+
+
+        </MenuItem>
+        <MenuItem Header="Администрирование"   >
+            <MenuItem Header="Тех.карты и оборудования" Click="TK_O" Visibility="Collapsed"></MenuItem>
+            <MenuItem Header="Тех.карты и оборудования" Click="MenuItem_Click_1" ></MenuItem>
+            <MenuItem Header="Персонал" Click="AddPers"></MenuItem>
+            <MenuItem Header="График выходов" Click="GrafikVixod"></MenuItem>
+
+
+
+
+
+        </MenuItem>
+
+    </Menu>
+</Window>
